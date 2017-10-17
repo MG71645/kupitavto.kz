@@ -1,0 +1,265 @@
+@media only screen and (max-width: 768px) {
+    
+    wrapper {
+        width: 100%;
+        padding: 16px 0;
+    }
+    
+    column {
+        
+    }
+    
+    popup {
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+    
+    .column-3,
+    .column-4,
+    .column-5,
+    .column-6,
+    .column-7,
+    .column-8,
+    .column-9,
+    .column-10,
+    .column-11,
+    .column-12 {
+        width: 100%;
+    }
+    
+    .mobile-hidden {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: block !important;
+    }
+    
+    .mobile-full {
+        width: 100%;
+    }
+    
+    .mobile-text-center {
+        text-align: center;
+    }
+    
+    
+    
+    
+    
+    logo {
+        
+    }
+    
+    h1 {
+        display: inline-block;
+        margin: 16px 0;
+        font-size: 36px;
+        line-height: 1;
+    }
+    
+    h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+    
+    h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    } h3 span {
+        font-size: 18px;
+    }
+    
+    h4 {
+        font-size: 18px;
+    }
+    
+    
+    
+    
+    
+    #main {
+        
+    }
+    
+    #main column.full {
+        padding: 0 16px;
+    }
+    
+    
+    
+    
+    
+    #badges {
+        background: #ff7808;
+    }
+    
+    
+    
+    
+    
+    #brands {
+        
+    }
+    
+    #brands h3 {
+        text-align: left;
+    }
+    
+    
+    
+    
+    
+    .catalog {
+        
+    } .catalog:before {
+        display: none;
+    }
+    
+    .catalog .column-10 {
+        width: auto;
+    }
+    
+    .catalog h1 {
+        padding: 0;
+    }
+    
+    .catalog .column-2 {
+        width: auto;
+    }
+    
+    .catalog .column-2 margin {
+        margin: 0;
+    }
+    
+    
+    
+    
+    
+    #offer-individual {
+        background: #ff7808;
+    }
+    
+    #offer-individual wrapper {
+        padding-bottom: 64px;
+    }
+    
+    #offer-individual h3  {
+        text-align: left;
+    }
+    
+    button.cta {
+        font-size: 14px;
+    }
+    
+    #offer-individual img {
+        left: 0;
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    #service img {
+        margin-bottom: 16px;
+    }
+    
+    #service p {
+        text-align: left;
+    }
+    
+    #service h4 {
+        margin-bottom: 16px;
+    }
+    
+    
+    
+    
+    
+    #credit p {
+        text-align: left;
+    }
+    
+    
+    
+    
+    
+    #offer-credit {
+        padding: 64px 0;
+        background: #ff7808;
+    }
+    
+    #offer-credit h3 {
+        text-align: center;
+    }
+    
+    
+    
+    
+    
+    #plan {
+        
+    }
+    
+    #plan .step {
+        padding: 16px 0;
+    }
+    
+    #plan .number {
+        font-size: 48px;
+    }
+    
+    #plan .text {
+        width: 80%;
+        font-size: 14px;
+    }
+    
+    #plan span.full {
+        margin-top: 16px;
+        text-align: center;
+    }
+    
+    
+    
+    
+    
+    #comments {
+        padding-top: 64px;
+        background: #ff7808;
+    }
+    
+    #comments .comment {
+        margin-top: 48px;
+        margin-left: 8px;
+        width: calc(100% - 16px);
+    }
+    
+    #comments .dialog {
+        padding: 32px;
+    }
+    
+    
+    
+    
+    
+    #final {
+        
+    }
+    
+    #final column.full {
+        padding: 0 16px;
+    }
+    
+    
+    
+    
+    
+    logo {
+        background-position: center center;
+    }
+    
+}

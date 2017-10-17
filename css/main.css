@@ -1,0 +1,631 @@
+html {
+    color: #222;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+#header {
+    padding: 32px 0 0;
+}
+
+#header wrapper {
+    padding: 0;
+}
+
+#header margin {
+    margin: 0 16px;
+}
+
+logo {
+    display: inline-block;
+    height: 56px;
+    width: 100%;
+    background: url("../img/logo.png") left center no-repeat;
+}
+
+#header a.cta {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+
+
+
+
+#main {
+    padding-top: 0;
+}
+
+#main wrapper {
+    padding: 0;
+}
+
+#main-kia {
+    cursor: pointer;
+}
+
+#main-toyota {
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    right: 0;
+}
+
+#main-ford {
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    left: 170px;
+    z-index: 1;
+}
+
+#main-hyundai {
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 180px;
+    z-index: 2;
+}
+
+
+
+
+#badges {
+    padding: 96px 0;
+    background: url("../img/background/solaris.jpg") center center no-repeat;
+    letter-spacing: 1px;
+}
+
+
+
+
+#brands {
+    background: url("../img/background/brands.png") center 50px no-repeat;
+}
+
+.brand {
+    width: 160px;
+    height: 160px;
+}
+
+#brands .ford {
+    background: url("../img/brand/ford.png") center center no-repeat;
+}
+
+#brands .toyota {
+    background: url("../img/brand/toyota.png") center center no-repeat;
+}
+
+#brands .datsun {
+    background: url("../img/brand/datsun.png") center center no-repeat;
+}
+
+#brands .nissan {
+    background: url("../img/brand/nissan.png") center center no-repeat;
+}
+
+#brands .hyundai {
+    background: url("../img/brand/hyundai.png") center center no-repeat;
+}
+
+#brands .kia {
+    background: url("../img/brand/kia.png") center center no-repeat;
+}
+
+#brands .lexus {
+    background: url("../img/brand/lexus.png") center center no-repeat;
+}
+
+
+
+
+
+.catalog {
+    padding-top: 0;
+} .catalog:before {
+    content: "";
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+.catalog wrapper {
+    padding: 0;
+}
+
+.catalog .column-2 {
+    background: white;
+}
+
+.catalog .column-4 {
+    cursor: pointer;
+    position: relative;
+}
+
+.catalog h1 {
+    display: inline-block;
+    padding-right: 32px;
+    background: white;
+}
+
+.catalog p {
+    margin-top: 8px;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+@media only screen and (min-width: 960px) {
+    .catalog div.text-center {
+        transition-delay: 0s;
+        opacity: 0;
+        position: absolute;
+        top: 230px;
+        left: -32px;
+        width: 100%;
+    } .catalog .column-4:hover div.text-center {
+        transition-delay: 0.1s;
+        opacity: 1;
+        left: 0;
+    }
+    .catalog .column-4 p {
+        transition-delay: 0.1s;
+    } .catalog .column-4:hover p {
+        transition-delay: 0s;
+        opacity: 0;
+        -webkit-transform: translateX(32px);
+        -moz-transform: translateX(32px);
+        -ms-transform: translateX(32px);
+        -o-transform: translateX(32px);
+        transform: translateX(32px);
+    }
+    .catalog .column-4:hover h5 {
+        -webkit-transform: translateX(-32px);
+        -moz-transform: translateX(-32px);
+        -ms-transform: translateX(-32px);
+        -o-transform: translateX(-32px);
+        transform: translateX(-32px);
+    }
+}
+
+
+
+
+
+#offer-individual {
+    margin-bottom: 32px;
+    background: url("../img/background/offer.jpg") center center no-repeat;
+    font-style: italic;
+}
+
+#offer-individual img {
+    position: absolute;
+    bottom: -160px;
+    right: -48px;
+}
+
+
+
+
+
+#service {
+    
+}
+
+#service wrapper {
+    padding: 16px 0;
+}
+
+#service img {
+    float: left;
+    margin-right: 32px;
+    margin-bottom: 32px;
+}
+
+#service h4 {
+    
+}
+
+#service p {
+    margin-top: 8px;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+
+
+
+#offer-credit {
+    padding: 96px 0;
+    background: url("../img/background/offer.jpg") center center no-repeat;
+    font-style: italic;
+}
+
+#offer-credit wrapper {
+    position: static;
+}
+
+#offer-credit img {
+    position: absolute;
+    top: 64px;
+    left: 50%;
+}
+
+
+
+
+
+#plan {
+    
+}
+
+#plan-image-01 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#plan-image-05 {
+    position: absolute;
+    bottom: -64px;
+    left: 0;
+    z-index: -1;
+}
+
+.step {
+    padding: 32px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 21px;
+}
+
+#plan .text {
+    line-height: 1.4;
+}
+
+.number {
+    margin-right: 8px;
+    font-size: 60px;
+    line-height: 1;
+    color: #ff7808;
+}
+
+@media only screen and (min-width: 960px) {
+    .step:nth-of-type(1) {
+        margin-left: 80px;
+    }
+    .step:nth-of-type(2) {
+        margin-left: 160px;
+    }
+    .step:nth-of-type(3) {
+        margin-left: 240px;
+    }
+    .step:nth-of-type(4) {
+        margin-left: 320px;
+    }
+    .step:nth-of-type(5) {
+        margin-left: 400px;
+    }
+}
+
+
+
+
+#comments {
+    padding-top: 96px;
+    padding-bottom: 128px;
+    background: url("../img/background/comments.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+#comments wrapper:last-of-type {
+    padding-top: 0;
+}
+
+#comments input[type="radio"] {
+    position: absolute;
+    bottom: 0;
+}
+
+.comment {
+    width: 100%;
+    text-align: center;
+}
+
+.avatar {
+    display: inline-block;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+#comment-01 .avatar {
+    background: url("../img/avatar/01.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+#comment-02 .avatar {
+    background: url("../img/avatar/02.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+#comment-03 .avatar {
+    background: url("../img/avatar/03.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+    display: inline-block;
+    min-height: 16px;
+    width: 16px;
+    margin: 0 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    border: 2px solid white;
+} input[type="radio"]:checked {
+    border-width: 8px;
+}
+
+.dialog {
+    display: inline-block;
+    position: relative;
+    margin-top: 32px;
+    padding: 48px;
+    background: white;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    text-align: justify;
+    color: #bcbcbc;
+} .dialog:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: calc(50% - 8px);
+    border-top: none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+.dialog p {
+    color: #616161;
+}
+
+span.name {
+    font-weight: 500;
+    color: #ff7808;
+}
+
+
+
+
+
+#final {
+    
+}
+
+#final wrapper {
+    padding: 0;
+}
+
+
+
+
+
+#footer {
+    padding: 32px 0;
+    background: #425968;
+}
+
+#footer icon {
+    font-size: 32px;
+}
+
+#footer a.cta {
+    font-size: 14px;
+}
+
+
+
+
+
+footer {
+    background: #1e2b33;
+}
+
+footer wrapper {
+    padding: 16px 0;
+}
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

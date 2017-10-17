@@ -1,0 +1,256 @@
+@media only screen and (min-width: 960px) {
+    
+    #main .offer {
+        transition-delay: 0.9s;
+        transition-duration: 0.3s;
+    }
+    
+    
+    
+    
+    
+    #badges img {
+        opacity: 0;
+    }
+    
+    #badges .animate img {
+        animation: bubble 0.7s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+    
+    #badges p {
+        opacity: 0;
+    }
+    
+    #badges .animate p {
+        animation: appear 0.5s ease-out;
+        animation-fill-mode: forwards;
+    }
+    
+    
+    
+    
+    
+    .brand:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    } .brand:hover:after {
+        opacity: 0;
+    }
+    
+    .brand.ford:after {
+        background: white url("../img/brand/ford-black.png") center center no-repeat;
+    }
+    
+    .brand.toyota:after {
+        background: white url("../img/brand/toyota-black.png") center center no-repeat;
+    }
+    
+    .brand.datsun:after {
+        background: white url("../img/brand/datsun-black.png") center center no-repeat;
+    }
+    
+    .brand.nissan:after {
+        background: white url("../img/brand/nissan-black.png") center center no-repeat;
+    }
+    
+    .brand.hyundai:after {
+        background: white url("../img/brand/hyundai-black.png") center center no-repeat;
+    }
+    
+    .brand.kia:after {
+        background: white url("../img/brand/kia-black.png") center center no-repeat;
+    }
+    
+    .brand.lexus:after {
+        background: white url("../img/brand/lexus-black.png") center center no-repeat;
+    }
+    
+    
+    
+    
+    
+    #offer-individual {
+        
+    }
+    
+    #offer-individual margin {
+        margin: 0;
+    }
+    
+    
+    
+    
+    
+    #offer-credit {
+        
+    }
+    
+    #offer-credit margin {
+        margin: 0;
+    }
+    
+    
+    
+    
+    
+    #comments {
+        
+    }
+    
+    #comments input {
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    #comments input:nth-of-type(1) {
+        left: calc(50% - 32px);
+    }
+    
+    #comments input:nth-of-type(2) {
+        left: calc(50% - 8px);
+    }
+    
+    #comments input:nth-of-type(3) {
+        left: calc(50% + 16px);
+    }
+    
+    .comment:not(:first-of-type) {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    @keyframes disappear {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    .dialog {
+        -webkit-animation: disappear 0.2s ease-in;
+        -moz-animation: disappear 0.2s ease-in;
+        -ms-animation: disappear 0.2s ease-in;
+        -o-animation: disappear 0.2s ease-in;
+        animation: disappear 0.2s ease-in;
+        opacity: 0;
+        transform-origin: center top;
+    }
+    
+    #comments .avatar {
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+    
+    #comments input:nth-of-type(1):checked ~ #comment-01 .avatar,
+    #comments input:nth-of-type(2):checked ~ #comment-02 .avatar,
+    #comments input:nth-of-type(3):checked ~ #comment-03 .avatar {
+        -webkit-transition: all 0.2s ease-in-out 0.2s;
+        -moz-transition: all 0.2s ease-in-out 0.2s;
+        -ms-transition: all 0.2s ease-in-out 0.2s;
+        -o-transition: all 0.2s ease-in-out 0.2s;
+        transition: all 0.2s ease-in-out 0.2s;
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    
+    @keyframes dialog {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            transform: scale(0);
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        75% {
+            opacity: 1;
+            -webkit-transform: scale(0.95);
+            -moz-transform: scale(0.95);
+            -ms-transform: scale(0.95);
+            -o-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    
+    #comments input:nth-of-type(1):checked ~ #comment-01 .dialog,
+    #comments input:nth-of-type(2):checked ~ #comment-02 .dialog,
+    #comments input:nth-of-type(3):checked ~ #comment-03 .dialog {
+        -webkit-animation: dialog 0.5s ease-out;
+        -moz-animation: dialog 0.5s ease-out;
+        -ms-animation: dialog 0.5s ease-out;
+        -o-animation: dialog 0.5s ease-out;
+        animation: dialog 0.5s ease-out;
+        animation-delay: 0.4s;
+        animation-fill-mode: forwards;
+    }
+    
+    #comments input:first-of-type:checked ~ #comments-prev {
+        display: none;
+    }
+    
+    #comments input:last-of-type:checked ~ #comments-next {
+        display: none;
+    }
+    
+    .comments-arrow {
+        opacity: 0.60;
+        position: absolute;
+        top: 45%;
+    } .comments-arrow:hover {
+        opacity: 1;
+    }
+    
+    #comments-prev {
+        left: 0;
+    }
+    
+    #comments-next {
+        right: 0;
+    }
+
+}

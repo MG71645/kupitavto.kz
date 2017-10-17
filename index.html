@@ -1,0 +1,1146 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SAMAL MOTORS</title>
+        <meta name="description" content="Продажа и сервисное обслуживание легковых автомобилей в Алматы, Астане, Усть-Каменогорске">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:image" content="http://www.kupitavto.kz/og.jpg"/>
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/mg.css">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/desktop.css">
+        <link rel="stylesheet" href="css/mobile.css">
+        <link rel="stylesheet" href="css/animation.css">
+        <link rel="stylesheet" href="css/flipclock.css">
+
+        <!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        
+        <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+        <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+        <!-- Optionally add helpers - button, thumbnail and/or media -->
+        <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+        <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        
+		<script src="js/referer.js"></script>
+        
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+        <script>
+            $().ready(function() {
+                $('form').each(function() {
+                    $(this).validate({
+                        rules: {
+                            name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            phone: {
+                                required: true,
+                                minlength: 6
+                            },
+                            email: {
+                                required: true,
+                                email: true
+                            }
+                        },
+                        messages: {
+                            name: {
+                                required: "Заполните имя",
+                                minlength: "Имя должно содержать минимум 2 символа"
+                            },
+                            phone: {
+                                required: "Заполните телефон",
+                                minlength: "Слишком короткий телефон"
+                            },
+                            email: {
+                                required: "Заполните email",
+                                email: "Введите правильный email"
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+        
+        <script>
+            function popup(id, trigger) {
+                $('popup input[name="trigger"]').val(trigger);
+                $('fade').removeClass('hidden');
+                $(id).removeClass('hidden');
+                $(id).css('background', '(url("../img/gallery/'+trigger+'.jpg');
+                setTimeout( function() {
+                    $('fade').addClass('show');
+                    $(id).addClass('show');
+                    $('popup input[name="name"]').focus();
+                }, 1 );
+            }
+            function popdown() {
+                $('fade').addClass('hidden').removeClass('show');
+                $('popup').each( function() {
+                    $(this).addClass('hidden').removeClass('show');
+                });
+            }
+        </script>
+        <script>
+            function scrollTo(elem) {
+                if(document.getElementById(elem)) {
+                    var destination = jQuery('#'+elem).offset().top-0;
+                    jQuery('html,body').animate({scrollTop: destination}, 500);
+                }
+            }
+        </script>
+        <script>
+            function AjaxPopupFormSend(formMain,url) {
+                if ( $('#send_phone').hasClass('used') ) {
+                    popdown();
+                } else {
+                    if ( $('#popup_main_form input[type="tel"]').hasClass('valid') ) {
+                        if ( $('#popup_main_form select').val() != '-' ) {
+                            $('#popup_main_cta').prop('disabled', true);
+                            $('#popup_main_cta').prop('value', 'Отправка');
+                            jQuery.ajax({
+                                url: url,
+                                type: "POST",
+                                dataType: "html",
+                                data: jQuery("#"+formMain).serialize(),
+                                success: function(response) {
+                                    //document.getElementById(result_id).innerHTML = response;
+                                    setTimeout( function() {
+                                        $('#slide-01').addClass('previous');
+                                        $('#slide-02').removeClass('next');
+                                    }, 1000 );
+                                },
+                                error: function(response) {
+                                    //document.getElementById(result_id).innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+                                    $('#popup_main_cta').prop('value', 'Ошибка');
+                                    setTimeout( function() {
+                                        $('#popup_main_cta').prop('disabled', false);
+                                        $('#popup_main_cta').prop('value', 'Отправить');
+                                    }, 1000 );
+                                }
+                            });
+                        } else {
+                            alert('Пожалуйста, выберите Ваш город!');
+                        }
+                    } else {
+                        alert('Пожалуйста, укажите Ваш номер телефона!');
+                    }
+                }
+            }
+            function AjaxFormSend(formMain,url,buttonId) {
+                var button = document.getElementById(buttonId);
+                button.disabled = true;
+                button.value = 'Отправка';
+                jQuery.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "html",
+                    data: jQuery("#"+formMain).serialize(),
+                    success: function(response) {
+                        //document.getElementById(result_id).innerHTML = response;
+                        setTimeout( function() {
+                            button.value = 'Готово!';
+                        }, 2000 );
+                    },
+                    error: function(response) {
+                        //document.getElementById(result_id).innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+                        setTimeout( function() {
+                            button.value = 'Ошибка';
+                        }, 2000 );
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <main>
+            <section id="header" class="mobile-hidden">
+                <wrapper>
+                    <column class="column-3 middle">
+                        <margin>
+                            <logo></logo>
+                        </margin>
+                    </column><column class="column-6 middle text-center">
+                        <margin>
+                            <small>
+                                Продажа и сервисное обслуживание легковых автомобилей
+                                в Алматы, Астане, Усть-Каменогорске
+                            </small>
+                        </margin>
+                    </column><column class="column-3 middle text-right">
+                        <margin>
+                            <a href="tel: +77172572244" class="middle">+7 7172 5722 44</a><br>
+                            <a href="tel: +77710501551" class="middle">+7 771 050 1551</a>
+                        </margin>
+                    </column>
+                    <column class="column-12 text-right">
+                        <margin>
+                            <a onclick="popup(popup_main, 'Бесплатная консультация в шапке')" class="cta">Бесплатная консультация</a>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="main">
+                <wrapper>
+                    <margin>
+                        <h1>Легковые автомобили</h1>
+                        <h2 class="text-right">Ford, Toyota, Hyundai, KIA, Lexus</h2>
+                        <h6 class="text-right">в наличии</h6>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <img id="main-hyundai" src="img/main/hyundai.png" class="animated from-left mobile-hidden" onclick="scrollTo('hyundai')">
+                    <img id="main-ford" src="img/main/ford.png" class="animated from-right mobile-hidden" onclick="scrollTo('ford')">
+                    <img id="main-toyota" src="img/main/toyota.png" class="animated from-left mobile-hidden" onclick="scrollTo('toyota')">
+                    <img id="main-kia" src="img/main/kia.png" class="animated from-right mobile-hidden" onclick="scrollTo('kia')">
+                    <img src="img/main.jpg" width="100%" class="mobile-only">
+                </wrapper>
+                <br>
+                <br class="mobile-hidden">
+                <wrapper>
+                    <column class="offer full animated from-left">
+                        <img src="img/offer-main.png" class="mobile-hidden">
+                        <img src="img/offer-main-mobile.png" class="mobile-only" width="100%">
+                        <br class="mobile-only">
+                        <button id="main-offer-cta" class="cta" onclick="popup(popup_main, 'Получить цену на 10-15% ниже на главной')">Оставить заявку</button>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="badges" class="inverse">
+                <wrapper>
+                    <column class="column-4 text-center">
+                        <margin>
+                            <img src="img/badge/01.png"><br>
+                            <br>
+                            <p delay="0.25s">
+                                <b>Гарантия</b> 3 года<br>
+                                или 100 000 км
+                            </p>
+                        </margin>
+                    </column><column class="column-4 text-center">
+                        <margin>
+                            <img src="img/badge/02.png" delay="0.25s"><br>
+                            <br>
+                            <p delay="0.50s">
+                                Возможность покупки автомобиля в <b>кредит и рассрочку</b>
+                            </p>
+                        </margin>
+                    </column><column class="column-4 text-center">
+                        <margin>
+                            <img src="img/badge/03.png" delay="0.50s"><br>
+                            <br>
+                            <p delay="0.75s">
+                                <b>Низкие цены</b><br>
+                                на автомобили
+                            </p>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="brands">
+                <wrapper class="text-center">
+                    <margin>
+                        <h3 class="animated from-left">
+                            <span>Вы можете ознакомиться с моделями разных брендов в одном месте</span>
+                        </h3>
+                        <h3 class='animated from-right'>
+                            Все модели автомобилей в наличии
+                        </h3>
+                    </margin>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-2 animated">
+                        <a class="brand ford" onclick="scrollTo('ford')"></a>
+                    </column><column class="column-2 animated">
+                        <a class="brand toyota" onclick="scrollTo('toyota')"></a>
+                    </column><!--column class="column-2 animated">
+                        <a class="brand datsun" onclick="scrollTo('datsun')"></a>
+                    </column--><!--column class="column-2 animated">
+                        <a class="brand nissan" onclick="scrollTo('nissan')"></a>
+                    </column--><column class="column-2 animated">
+                        <a class="brand hyundai" onclick="scrollTo('hyundai')"></a>
+                    </column><column class="column-2 animated">
+                        <a class="brand kia" onclick="scrollTo('kia')"></a>
+                    </column><column class="column-2 animated">
+                        <a class="brand lexus" onclick="scrollTo('lexus')"></a>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="ford" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/ford.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>Ford</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'Ford Fiesta')">
+                        <margin>
+                            <img src="img/catalog/ford/fiesta.png">
+                            <h5 class="smooth">Ford Fiesta</h5>
+                            <p class="smooth">
+                                Сочетает продуманный стиль и передовые технологии
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Fiesta')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Ford Focus')">
+                        <margin>
+                            <img src="img/catalog/ford/focus.png">
+                            <h5 class="smooth">Ford Focus</h5>
+                            <p class="smooth">
+                                Обладает поистине стильным и выразительным дизайном
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Focus')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Ford Mondeo')">
+                        <margin>
+                            <img src="img/catalog/ford/mondeo.png">
+                            <h5 class="smooth">Ford Mondeo</h5>
+                            <p class="smooth">
+                                Оснащенный интеллектуальными технологиями изысканный, потрясающий автомобиль
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Mondeo')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Ford Ecosport')">
+                        <margin>
+                            <img src="img/catalog/ford/ecosport.png">
+                            <h5 class="smooth">Ford Ecosport</h5>
+                            <p class="smooth">
+                                Компактный, функциональный и экономичный автомобиль
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Ecosport')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Ford Explorer')">
+                        <margin>
+                            <img src="img/catalog/ford/explorer.png">
+                            <h5 class="smooth">Ford Explorer</h5>
+                            <p class="smooth">
+                                Легендарный внедорожник, сочетающий премиальный европейский стиль и американскую харизму
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Explorer')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Ford Kuga')">
+                        <margin>
+                            <img src="img/catalog/ford/kuga.png">
+                            <h5 class="smooth">Ford Kuga</h5>
+                            <p class="smooth">
+                                Выражение стиля и мощи, наш самый умный в истории кроссовер
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Kuga')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Ford Ranger')">
+                        <margin>
+                            <img src="img/catalog/ford/ranger.png">
+                            <h5 class="smooth">Ford Ranger</h5>
+                            <p class="smooth">
+                                Отличная проходимость и управляемость
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Ford Ranger')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="toyota" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/toyota.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>Toyota</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'Toyota Camry')">
+                        <margin>
+                            <img src="img/catalog/toyota/camry.png">
+                            <h5 class="smooth">Toyota Camry</h5>
+                            <p class="smooth">
+                                Лучший легковой автомобиль в своей ценовой категории
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota Camry')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Toyota Hilux')">
+                        <margin>
+                            <img src="img/catalog/toyota/hilux.png">
+                            <h5 class="smooth">Toyota Hilux</h5>
+                            <p class="smooth">
+                                Исключительные внедорожные возможности
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota Hilux')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Toyota Highlander')">
+                        <margin>
+                            <img src="img/catalog/toyota/highlander.png">
+                            <h5 class="smooth">Toyota Highlander</h5>
+                            <p class="smooth">
+                                Отличная управляемость, вместительный багажник, 7 комфортабельных сидений
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota Highlander')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Toyota Corolla')">
+                        <margin>
+                            <img src="img/catalog/toyota/corolla.png">
+                            <h5 class="smooth">Toyota Corolla</h5>
+                            <p class="smooth">
+                                Воплощение аэродинамики и стиля Максимальный комфор
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota Corolla')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Toyota RAV')">
+                        <margin>
+                            <img src="img/catalog/toyota/rav.png">
+                            <h5 class="smooth">Toyota RAV</h5>
+                            <p class="smooth">
+                                Стильный, превосходно оснащенный, он создан, чтобы вы могли взять от жизни все
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota RAV')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Toyota Land Cruiser Prado')">
+                        <margin>
+                            <img src="img/catalog/toyota/prado.png">
+                            <h5 class="smooth">Land Cruiser Prado</h5>
+                            <p class="smooth">
+                                Оптимальное сочетание мощности и экономичности
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota Land Cruiser Prado')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Toyota Land Cruiser 200')">
+                        <margin>
+                            <img src="img/catalog/toyota/landcruiser200.png">
+                            <h5 class="smooth">Toyota Land Cruiser 200</h5>
+                            <p class="smooth">
+                                Впечатляет внешним видом. Эталон надежности и качества
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Toyota Land Cruiser 200')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <!--section id="datsun" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/datsun.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>Datsun</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'Datsun On-Do')">
+                        <margin>
+                            <img src="img/catalog/datsun/ondo.png">
+                            <h5 class="smooth">Datsun On-Do</h5>
+                            <p class="smooth">
+                                Создан в соответствии с мировыми технологиями и стандартами безопасности
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Datsun On-Do')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Datsun Mi-Do')">
+                        <margin>
+                            <img src="img/catalog/datsun/mido.png">
+                            <h5 class="smooth">Datsun Mi-Do</h5>
+                            <p class="smooth">
+                                Компактный и надежный седан по низкой стоимости
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Datsun Mi-Do')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section-->
+            
+            <!--section id="nissan" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/nissan.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>Nissan</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'Nissan Almera')">
+                        <margin>
+                            <img src="img/catalog/nissan/almera.png">
+                            <h5 class="smooth">Nissan Almera</h5>
+                            <p class="smooth">
+                                Яркий, надежный, вместительный, созданный специально для наших дорог
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Nissan Almera')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Nissan Terrano')">
+                        <margin>
+                            <img src="img/catalog/nissan/terrano.png">
+                            <h5 class="smooth">Nissan Terrano</h5>
+                            <p class="smooth">
+                                Уверенно справляется с дорожными препятствиями
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Nissan Terrano')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Nissan Tiida')">
+                        <margin>
+                            <img src="img/catalog/nissan/tiida.png">
+                            <h5 class="smooth">Nissan Tiida</h5>
+                            <p class="smooth">
+                                Тщательно продуманная аэродинамика кузова, эргономичный салон
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Nissan Tiida')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section-->
+            
+            <section id="hyundai" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/hyundai.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>Hyundai</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'Hyundai Solaris')">
+                        <margin>
+                            <img src="img/catalog/hyundai/solaris.png">
+                            <h5 class="smooth">Hyundai Solaris</h5>
+                            <p class="smooth">
+                                Элегантный, безопасный автомобиль. Экономичный расход топлива
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Hyundai Solaris')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Hyundai Elantra')">
+                        <margin>
+                            <img src="img/catalog/hyundai/elantra.png">
+                            <h5 class="smooth">Hyundai Elantra</h5>
+                            <p class="smooth">
+                                Элегантный, утонченный стиль. Больше возможностей, больше места. Гармония дизайна и эксплуатационных качеств
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Hyundai Elantra')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Hyundai i30')">
+                        <margin>
+                            <img src="img/catalog/hyundai/i30.png">
+                            <h5 class="smooth">Hyundai i30</h5>
+                            <p class="smooth">
+                                Превосходная экономичность. Бескомпромиссная безопасность
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Hyundai i30')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Hyundai Tucson')">
+                        <margin>
+                            <img src="img/catalog/hyundai/tucson.png">
+                            <h5 class="smooth">Hyundai Tucson</h5>
+                            <p class="smooth">
+                                Гармоничный внешний вид и невероятная мощь внутри
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Hyundai Tucson')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Hyundai i40')">
+                        <margin>
+                            <img src="img/catalog/hyundai/i40.png">
+                            <h5 class="smooth">Hyundai i40</h5>
+                            <p class="smooth">
+                                До девяти подушек безопасности. Высокоэкономичный расход топлива
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Hyundai i40')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="kia" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/kia.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>KIA</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'KIA Rio')">
+                        <margin>
+                            <img src="img/catalog/kia/rio.png">
+                            <h5 class="smooth">KIA Rio</h5>
+                            <p class="smooth">
+                                Комфортабельный салон представит привычные маршруты в новом свете
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'KIA Rio')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'KIA Sportage')">
+                        <margin>
+                            <img src="img/catalog/kia/sportage.png">
+                            <h5 class="smooth">KIA Sportage</h5>
+                            <p class="smooth">
+                                Одна из наиболее успешных моделей марки, нашедшая поклонников в самых разных странах мира
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'KIA Sportage')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="lexus" class="catalog">
+                <wrapper>
+                    <column class="column-2 middle">
+                        <margin>
+                            <img src="img/brand/lexus.png">
+                        </margin>
+                    </column><column class="column-10 middle">
+                        <h1>Lexus</h1>
+                    </column>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-4" onclick="popup(popup_main, 'Lexus NX 200')">
+                        <margin>
+                            <img src="img/catalog/lexus/nx200.png">
+                            <h5 class="smooth">Lexus NX 200</h5>
+                            <p class="smooth">
+                                Невероятно мощный двигатель, просторный салон
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Lexus NX 200')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Lexus RX 350')">
+                        <margin>
+                            <img src="img/catalog/lexus/rx350.png">
+                            <h5 class="smooth">Lexus RX 350</h5>
+                            <p class="smooth">
+                                Насладитесь благородной мощью двигателя v6 в сочетании с новой современной восьмиступенчатой коробкой передач
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Lexus RX 350')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Lexus ES 250')">
+                        <margin>
+                            <img src="img/catalog/lexus/es250.png">
+                            <h5 class="smooth">Lexus ES 250</h5>
+                            <p class="smooth">
+                                Устанавливает высокую планку изящества и роскоши для премиальных бизнес-седанов
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Lexus ES 250')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column><column class="column-4" onclick="popup(popup_main, 'Lexus LX 570')">
+                        <margin>
+                            <img src="img/catalog/lexus/lx570.png">
+                            <h5 class="smooth">Lexus LX 570</h5>
+                            <p class="smooth">
+                                Удивительно комфортный в управлении. Оснащен бензиновым двигателем V8 объемом 5,7л и передовой 8-ступенчатой коробкой передач
+                            </p>
+                            <div class="text-center smooth">
+                                <button class="cta" onclick="popup(popup_main, 'Lexus LX 570')">Получить цену</button>
+                            </div>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="offer-individual" class="inverse">
+                <wrapper>
+                    <column class="column-6 text-center">
+                        <margin>
+                            <span class="full text-left animated from-left">Мы готовы сделать Вам</span><br>
+                            <h4 class="text-right animated from-left">индивидуальное предложение</h4>
+                            <br>
+                            <span class="full text-left animated from-left">на приобретение автомобиля по цене</span><br>
+                            <h3 class="text-center animated from-left">ниже на 10-15%</h3>
+                            <span class="full text-right animated from-left">чем в других автосалонах</span><br>
+                            <br>
+                            <span class="animated from-left">
+                                <button class="cta" onclick="popup(popup_main, 'Индивидуальное предложение')">Получить низкую цену</button>
+                            </span>
+                        </margin>
+                    </column>
+                    <img src="img/offer-individual.png" class="animated from-right">
+                </wrapper>
+            </section>
+            
+            <section id="service">
+                <wrapper class="text-center">
+                    <margin>
+                        <h3>Сервисное обслуживание автомобилей в Астане</h3>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <p>
+                            Комплекс обязательных операций, предусмотренных заводом – изготовителем, который должен
+                            обеспечить безопасность, надежность, экологичность, комфорт при эксплуатации автомобиля
+                        </p>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <img src="img/service/01.png">
+                        <h4>Гарантия на работы</h4>
+                        <p>
+                            Мы настолько уверены в качестве своих услуг, что даем безусловную гарантию на все свои работы.
+                            Именно по этой причине нам уже доверили ремонт своего автомобиля более 2000 наших клиентов.
+                        </p>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <img src="img/service/02.png">
+                        <h4>Справедливая цена</h4>
+                        <p>
+                            Вы всегда можете быть уверены в том, что цена на работы соответствует трудозатратам на ее
+                            выполнение. У нас нет скидок. Мы не проводим распродажи. Мы сразу назначаем реально низкие
+                            цены на свои работы. 
+                        </p>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <img src="img/service/03.png">
+                        <h4>Дилерское оборудование</h4>
+                        <p>
+                            Теперь Вам совершенно не обязательно переплачивать официальным дилерам за обслуживание
+                            своего автомобиля. Мы используем самое современное диагностическое и ремонтное
+                            оборудование, что позволяет нам решать проблему с первого раза.
+                        </p>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <img src="img/service/04.png">
+                        <h4>Гарантия оговоренной стоимости</h4>
+                        <p>
+                            Никаких сюрпризов! Без Вашего согласия мы не проводим никаких дополнительных работ и не
+                            повышаем смету. Все по-честному.
+                        </p>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <img src="img/service/05.png">
+                        <h4>С нами удобно</h4>
+                        <p>
+                            Мы не просто чиним автомобили. Нам очень нравится качественно обслуживать своих клиентов.
+                            Взвалите на наши плечи заботу о своем автомобиле, и мы сделаем все, чтобы этот процесс стал для
+                            Вас максимально комфортным и простым.
+                        </p>
+                    </margin>
+                </wrapper>
+                <br>
+                <br>
+                <wrapper class="text-center">
+                    <margin class="text-left">
+                        <column>
+                            <h4>
+                                Оставить заявку на сервисное обслуживание<br class="mobile-hidden">
+                                авомобиля или заказать запчасти
+                            </h4>
+                        </column>
+                        <button class="cta" onclick="popup(popup_main, 'Записаться на сервис')">Записаться на сервис</button>
+                    </margin>
+                </wrapper>
+            </section>
+            
+            <section id="credit">
+                <wrapper class="text-center">
+                    <margin>
+                        <h3>Покупка автомобиля в кредит</h3>
+                    </margin>
+                </wrapper>
+                <wrapper class="text-center">
+                    <column class="column-8">
+                        <margin>
+                            <p>
+                                Узнайте решение не выходя из дома. Выберите самые выгодные процентные ставки по автокредитам в банках
+                            </p>
+                        </margin>
+                    </column>
+                    <column class="column-4">
+                        <margin>
+                            <a onclick="scrollTo('offer-credit')">
+                                <img src="img/bank/kaspi.png">
+                            </a>
+                        </margin>
+                    </column><column class="column-4">
+                        <margin>
+                            <a onclick="scrollTo('offer-credit')">
+                                <img src="img/bank/eurasian.png">
+                            </a>
+                        </margin>
+                    </column><column class="column-4">
+                        <margin>
+                            <a onclick="scrollTo('offer-credit')">
+                                <img src="img/bank/alfa.png">
+                            </a>
+                        </margin>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="offer-credit" class="inverse">
+                <wrapper>
+                    <column class="column-5 text-center">
+                        <margin>
+                            <h4 class="text-left animated from-left">Выгодные условия кредита</h4>
+                            <span class="full text-right animated from-left">на новое авто</span>
+                            <span class="full text-left animated from-left">Одобрение кредита</span>
+                            <h3 class="animated from-left">за 1 день</h3>
+                            <br>
+                            <span class="animated from-left">
+                                <button class="cta" onclick="popup(popup_main, 'Одобрение кредита за 1 день')">Оставить заявку</button>
+                            </span>
+                        </margin>
+                    </column>
+                    <img src="img/hand.png" class="animated from-right mobile-hidden">
+                </wrapper>
+            </section>
+            
+            <section id="plan">
+                <wrapper class="text-center">
+                    <margin>
+                        <h3 class="animated from-left">Как мы работаем</h3>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <margin>
+                        <img id="plan-image-01" class="animated mobile-hidden" src="img/plan/01.jpg">
+                        <div class="step animated from-left">
+                            <span class="number middle">1</span>
+                            <span class="text middle">
+                                Вы оставляете заявку<br>
+                                на сайте
+                            </span>
+                            <span class="full">
+                                <button class="cta" onclick="popup(popup_main, 'Как мы работаем')">Оставить заявку</button>
+                            </span>
+                        </div>
+                        <div class="step animated from-left">
+                            <span class="number">2</span>
+                            <span class="text middle">
+                                Наш менеджер предоставляет Вам<br class="mobile-hidden">
+                                предложение по самой выгодной цене
+                            </span>
+                        </div>
+                        <div class="step animated from-left">
+                            <span class="number">3</span>
+                            <span class="text middle">
+                                Вы приезжаете на демонстрацию<br class="mobile-hidden">
+                                автомобиля в наш салон
+                            </span>
+                        </div>
+                        <div class="step animated from-left">
+                            <span class="number">4</span>
+                            <span class="text middle">
+                                Мы быстро оформляем документы<br>
+                                и покупку
+                            </span>
+                        </div>
+                        <div class="step animated from-left">
+                            <span class="number">5</span>
+                            <span class="text middle">
+                                Вы получаете квалифицированное<br class="mobile-hidden">
+                                сервисное обслуживание
+                            </span>
+                        </div>
+                        <img id="plan-image-05" class="animated mobile-hidden" src="img/plan/05.jpg">
+                    </margin>
+                </wrapper>
+            </section>
+            
+            <section id="comments" class="inverse">
+                <wrapper class="text-center">
+                    <margin>
+                        <h3>Отзывы наших клиентов</h3>
+                    </margin>
+                </wrapper>
+                <wrapper class="text-center">
+                    <input type="radio" name="comments-nav" value="01" class="mobile-hidden" checked>
+                    <input type="radio" name="comments-nav" value="02" class="mobile-hidden">
+                    <input type="radio" name="comments-nav" value="03" class="mobile-hidden">
+                    <div id="comment-01" class="comment">
+                        <div class="avatar"></div>
+                        <br>
+                        <div class="dialog column-8">
+                            <p>
+                                Купили с мужем в декабре свою первую новенькую Camry. Хочу рассказать, как все было.
+                                Смотрели машины, которые уже были на складе, муж сам определялся с комплектацией,
+                                потому, что ему все-таки виднее. Выбирали из 3 вариантов. Так как поехали в салон после работы,
+                                то пока выбрали было уже позднее время. На следующий день утром подъехали для оформления документов
+                                и внесения оплаты. Менеджер нас ждал и к тому моменту уже все подготовил,
+                                поэтому вся процедура заняла немного времени. Машиной пользуемся активно и очень довольны.
+                                Все-таки Toyota это Toyota!
+                            </p>
+                            <span class="name">Динара Ташенова</span> - Алматы
+                        </div>
+                    </div>
+                    <div id="comment-02" class="comment">
+                        <div class="avatar"></div>
+                        <br>
+                        <div class="dialog column-8">
+                            <p>
+                                Планировали покупку новой машины ближе к лету, посоветовавшись с кем только было возможно
+                                остановились на Ниссан Альмера, но последний рост курса доллара заставил нас поторопиться
+                                с этим делом. Заняли немного денег, добавили свои и поехали в автоцентр Самал Моторс.
+                                С действовавшим предложением на Альмере уложились в нашу сумму. На все про все вместе
+                                с документами ушло где-то 3 часа. После сразу поехали поставили на учёт в ЦОН.
+                                Покупкой с супругой довольны.
+                            </p>
+                            <span class="name">Алик Джазыбаев</span> - Астана
+                        </div>
+                    </div>
+                    <div id="comment-03" class="comment">
+                        <div class="avatar"></div>
+                        <br>
+                        <div class="dialog column-8">
+                            <p>
+                                Читал разные отзывы об этом салоне. Приехал за машиной (Форд Мондео) из другого города
+                                по телефонной договоренности. Приобретение оформилось за 3-4 часа.
+                                Работа менеджера(Сабит Жагипаров) выше всяких похвал. Не знаю, как у других,
+                                но моя после пробега 2000 км чувствует себя хорошо.
+                            </p>
+                            <span class="name">Михаил Воробьев</span> - Караганда
+                        </div>
+                    </div>
+                    <a id="comments-prev" class="comments-arrow smooth mobile-hidden">
+                        <img src="img/arrow-left.png">
+                    </a>
+                    <a id="comments-next" class="comments-arrow smooth mobile-hidden">
+                        <img src="img/arrow-right.png">
+                    </a>
+                </wrapper>
+            </section>
+            
+            <section id="final">
+                <wrapper>
+                    <margin>
+                        <h1>Легковые автомобили</h1>
+                        <h2 class="text-right">Ford, Toyota, Hyundai, KIA, Lexus</h2>
+                        <h6 class="text-right">в наличии</h6>
+                    </margin>
+                </wrapper>
+                <wrapper>
+                    <img id="main-hyundai" src="img/main/hyundai.png" class="animated from-left mobile-hidden" onclick="scrollTo('hyundai')">
+                    <img id="main-ford" src="img/main/ford.png" class="animated from-right mobile-hidden" onclick="scrollTo('ford')">
+                    <img id="main-toyota" src="img/main/toyota.png" class="animated from-left mobile-hidden" onclick="scrollTo('toyota')">
+                    <img id="main-kia" src="img/main/kia.png" class="animated from-right mobile-hidden" onclick="scrollTo('kia')">
+                    <img src="img/main.jpg" width="100%" class="mobile-only">
+                </wrapper>
+                <br>
+                <br>
+                <wrapper>
+                    <column class="offer full animated from-left">
+                        <img src="img/offer-main.png" class="mobile-hidden">
+                        <img src="img/offer-main-mobile.png" class="mobile-only" width="100%">
+                        <br class="mobile-only">
+                        <button id="main-offer-cta" class="cta" onclick="popup(popup_main, 'Получить цену на 10-15% ниже. В конце')">Оставить заявку</button>
+                    </column>
+                </wrapper>
+            </section>
+            
+            <section id="footer" class="dark">
+                <wrapper>
+                    <column class="column-3 middle">
+                        <logo></logo>
+                    </column><column class="column-6 middle text-center">
+                        <margin>
+                            <small>
+                                Продажа и сервисное обслуживание легковых автомобилей
+                                в Алматы, Астане, Усть-Каменогорске
+                            </small>
+                        </margin>
+                    </column><column class="column-3 middle text-right mobile-text-center">
+                            <a href="tel: +77172572244" class="middle">+7 7172 5722 44</a><br>
+                            <a href="tel: +77710501551" class="middle">+7 771 050 1551</a><br>
+                        <a onclick="popup(popup_main, 'Бесплатная консультация в конце')" class="cta">Бесплатная консультация</a>
+                    </column>
+                </wrapper>
+            </section>
+        </main>
+        
+        <footer class="dark">
+            <wrapper class="text-center">
+                <small>
+                    © 2016. SAMAL MOTORS<br>
+                    <a class="cta" href="politics.pdf">Политика конфиденциальности</a>
+                </small>
+            </wrapper>
+        </footer>
+        
+        <fade class="hidden" onclick="popdown()"></fade>
+        
+        <popup id="popup_main" class="hidden">
+            <column class="column-4 mobile-hidden">
+            </column><column class="column-4 dark">
+                <slider>
+                    <slide id="slide-01">
+                        <margin>
+                            <h6>Введите телефон</h6>
+                            <p>Оставьте Ваш телефон и мы перезвоним Вам в рабочее время</p>
+                            <form id="popup_main_form">
+                                <mg-input icon="account">
+                                    <input type="text" name="name" placeholder="Имя:">
+                                </mg-input>
+                                <mg-input icon="phone">
+                                    <input type="tel" name="phone" placeholder="Телефон:">
+                                </mg-input>
+                                <mg-input type="select" icon="city">
+                                    <select name="city">
+                                        <option value="-">Выберите город</option>
+                                        <option value="Астана">Астана</option>
+                                        <option value="Алматы">Алматы</option>
+                                        <option value="Актау">Актау</option>
+                                        <option value="Актобе">Актобе</option>
+                                        <option value="Атырау">Атырау</option>
+                                        <option value="Жезказган">Жезказган</option>
+                                        <option value="Караганда">Караганда</option>
+                                        <option value="Кокшетау">Кокшетау</option>
+                                        <option value="Костанай">Костанай</option>
+                                        <option value="Кызылорда">Кызылорда</option>
+                                        <option value="Павлодар">Павлодар</option>
+                                        <option value="Петропавловск">Петропавловск</option>
+                                        <option value="Семей">Семей</option>
+                                        <option value="Талдыкорган">Талдыкорган</option>
+                                        <option value="Тараз">Тараз</option>
+                                        <option value="Уральск">Уральск</option>
+                                        <option value="Усть-Каменогорск">Усть-Каменогорск</option>
+                                        <option value="Шымкент">Шымкент</option>
+                                    </select>
+                                </mg-input>
+                                <input type="hidden" name="trigger">
+                                <input type="button" id="popup_main_cta" onclick="AjaxPopupFormSend('popup_main_form', 'callback.php')" value="Отправить">
+                            </form>
+                        </margin>
+                    </slide>
+                    <slide id="slide-02" class="next">
+                        <margin>
+                            <h6>Спасибо!</h6>
+                            <p>Оператор свяжется с Вами в течение 30 минут</p>
+                            <input type="button" class="cta" onclick="popdown()" value="Готово">
+                        </margin>
+                    </slide>
+                </slider>
+            </column>
+            <icon class="icon-close" onclick="popdown()"></icon>
+        </popup>
+
+        <script src="js/main.js"></script>
+        <script src="js/animate.js"></script>
+        
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter34759655 = new Ya.Metrika({
+                            id:34759655,
+                            clickmap:true,
+                            trackLinks:true,
+                            accurateTrackBounce:true,
+                            webvisor:true
+                        });
+                    } catch(e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/34759655" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+        
+    </body>
+</html>
